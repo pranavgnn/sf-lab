@@ -1,4 +1,6 @@
+
 # Lab 3
+
 **18/08/2025**
 
 ### Stata Guide
@@ -12,7 +14,7 @@ H<sub>0</sub>: Current Ratio for all large companies is 2
 H<sub>1</sub>: Current Ratio for all large companies is not 2
 
 ### Step 2: Normality Test
-Use Shapiro-Wilk's test.
+Use **Shapiro-Wilk's test**.
 Command:
 ```r
 swilk CurrentRatio 
@@ -32,8 +34,8 @@ CurrentRatio |         99    0.34224     53.854     8.838    0.00000
 H<sub>0</sub>: Data is normal
 H<sub>1</sub>: Data is not normal
 
-Since `p < 0.05`, we fail to reject H<sub>0</sub>.
-Therefore, data is not normal.
+Since `p < 0.05`, we **reject H<sub>0</sub>**.
+Therefore, **data is not normal**.
 
 Transform the data by taking `log`.
 Command:
@@ -46,7 +48,7 @@ Output:
 (12 missing values generated)
 ```
 
-Perform Shapiro-Wilk's test again on the new column.
+Perform **Shapiro-Wilk's test** again on the new column.
 Command:
 ```r
 swilk Current_Ratio
@@ -62,13 +64,13 @@ Current_Ra~o |         88    0.82920     12.681     5.595    0.00000
 
 ```
 
-Since `p < 0.05`, we fail to reject H<sub>0</sub>.
-Therefore, data is not normal.
+Since `p < 0.05`, we **reject H<sub>0</sub>**.
+Therefore, **data is not normal**.
 
 We could not transform our data.
 
 ### Step 3: Select Test
-We are choosing Wilcoxon Signed Rank Test.
+We are choosing **Wilcoxon Signed Rank Test**.
 Command:
 ```r
 signrank CurrentRatio = 2
@@ -100,7 +102,8 @@ Exact prob = 0.0000
 ```
 
 ### Step 4 : Interpretation
-The p value is 0.0000
+The p value is `0.0000`
 
-As the p value is less than the significance value of 0.05, we reject the null hypothesis.
+As the p value is less than the significance value of 0.05, we **reject the null hypothesis**.
+
 Therefore, all companies do not maintain a current ratio of 2.
