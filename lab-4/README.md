@@ -96,6 +96,7 @@ H0: diff = 0                                     Degrees of freedom =       33
 ### Step 4 : Interpretation
 The p value is `0.4219`
 
-As the p value is less than the significance value of 0.05, we **fail to reject the null hypothesis**.
+As the p value is more than the significance value of 0.05, we **fail to reject the null hypothesis**.
+
 
 Therefore, there is no statistically significant difference in the market capitalization of automobile companies listed on these two stock exchanges.
