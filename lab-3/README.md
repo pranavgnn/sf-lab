@@ -36,6 +36,7 @@ CurrentRatio |         99    0.34224     53.854     8.838    0.00000
 ```
 
 H<sub>0</sub>: Data is normal
+
 H<sub>1</sub>: Data is not normal
 
 Since `p < 0.05`, we **reject H<sub>0</sub>**.
@@ -112,4 +113,5 @@ As the p value is less than the significance value of 0.05, we **reject the null
 
 
 Therefore, all companies do not maintain a current ratio of 2.
+
 
