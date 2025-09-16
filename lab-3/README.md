@@ -5,8 +5,11 @@
 
 ### Stata Guide
 File > Import > Excel spreadsheet
+
 Browse for data
+
 `Import first row as variable names`
+
 Statistics > Summaries, tables, and tests > Summary and descriptive statistics > Summary statistics
 
 ### Step 1: Hypothesis
@@ -109,3 +112,4 @@ As the p value is less than the significance value of 0.05, we **reject the null
 
 
 Therefore, all companies do not maintain a current ratio of 2.
+
