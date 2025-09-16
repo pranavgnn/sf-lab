@@ -29,6 +29,7 @@ MarketCapi~n |         35    0.80796      6.854     4.018    0.00003
 ```
 
 H<sub>0</sub>: Data is normal
+
 H<sub>1</sub>: Data is not normal
 
 Since `p < 0.05`, we **reject H<sub>0</sub>**.
@@ -101,4 +102,5 @@ As the p value is more than the significance value of 0.05, we **fail to reject 
 
 
 Therefore, there is no statistically significant difference in the market capitalization of automobile companies listed on these two stock exchanges.
+
 
