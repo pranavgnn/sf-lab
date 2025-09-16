@@ -7,6 +7,7 @@ It is often debated that there is a significant difference in the market capital
 
 ### Step 1: Hypothesis
 H<sub>0</sub>: There is no statistically significant difference in the market capitalization of automobile companies listed on these two stock exchanges
+
 H<sub>1</sub>: There is a statistically significant difference in the market capitalization of automobile companies listed on these two stock exchanges
 
 ### Step 2: Normality Test
@@ -100,3 +101,4 @@ As the p value is more than the significance value of 0.05, we **fail to reject 
 
 
 Therefore, there is no statistically significant difference in the market capitalization of automobile companies listed on these two stock exchanges.
+
