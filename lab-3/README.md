@@ -11,6 +11,7 @@ Statistics > Summaries, tables, and tests > Summary and descriptive statistics >
 
 ### Step 1: Hypothesis
 H<sub>0</sub>: Current Ratio for all large companies is 2
+
 H<sub>1</sub>: Current Ratio for all large companies is not 2
 
 ### Step 2: Normality Test
@@ -105,5 +106,6 @@ Exact prob = 0.0000
 The p value is `0.0000`
 
 As the p value is less than the significance value of 0.05, we **reject the null hypothesis**.
+
 
 Therefore, all companies do not maintain a current ratio of 2.
