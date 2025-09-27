@@ -1,4 +1,3 @@
-
 # Lab 5
 
 **27/09/2025**
@@ -16,9 +15,9 @@ It is often debated whether the percentage spent on CSR activities has a signifi
 3. Inventory Turnover Ratio
 
 ### Step 1: Hypothesis
-H<sub>0</sub>: There is no statistically significant difference in the market capitalization of automobile companies listed on these two stock exchanges
+H<sub>0</sub>: The percentage spent on CSR activities does not have a statistically significant impact on the profitability (ROCE) of FMCG companies, after controlling for Total Asset Turnover, Inventory Turnover, and Interest Coverage Ratios.
 
-H<sub>1</sub>: There is a statistically significant difference in the market capitalization of automobile companies listed on these two stock exchanges
+H<sub>1</sub>: The percentage spent on CSR activities has a statistically significant impact on the profitability (ROCE) of FMCG companies, after controlling for Total Asset Turnover, Inventory Turnover, and Interest Coverage Ratios.
 
 ### Step 2: Regression Analysis
 Use **Linear Regression**.
@@ -49,10 +48,15 @@ TotalAssetTurnoverRatio |   3.547468   1.148524     3.09   0.003     1.257378   
 
 ```
 
-### Step 3: Interpretation
-The p value is `0.4219`
+### Step 3: Interpretation  
 
-As the p value is more than the significance value of 0.05, we **fail to reject the null hypothesis**.
+- The p-value for **CSR Spending (0.705)** is greater than the significance level of 0.05. Therefore, CSR spending does **not** have a statistically significant impact on ROCE.  
 
+- **Total Asset Turnover Ratio (p = 0.003)** and **Interest Coverage Ratio (p = 0.039)** are statistically significant and positively affect ROCE.  
 
-Therefore, there is no statistically significant difference in the market capitalization of automobile companies listed on these two stock exchanges.
+- **Inventory Turnover Ratio (p = 0.545)** does not have a significant effect.  
+
+- The overall regression model is significant (**Prob > F = 0.0038**), with an **R² of 0.1934**, meaning about 19.3% of the variation in ROCE is explained by the model.  
+
+**Conclusion:**  
+We **fail to reject H₀**. CSR spending does not significantly influence the profitability (ROCE) of FMCG companies, while operational efficiency and interest coverage are stronger determinants of profitability.
