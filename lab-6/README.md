@@ -20,6 +20,8 @@ predict res, residuals
 wntestq res
 ```
 
+---
+
 ### Step 1: Load Data
 
 Command:
@@ -27,6 +29,8 @@ Command:
 ```
 use https://www.stata-press.com/data/r19/wpi1.dta
 ```
+
+---
 
 ### Step 2: Describe data
 
@@ -53,6 +57,8 @@ ln_wpi          float   %9.0g
 Sorted by: t  
 ```
 
+---
+
 ### Step 3: Declare dataset as time-series data
 
 Command:
@@ -69,6 +75,8 @@ Time variable: t, 1960q1 to 1990q4
 
 ```
 
+---
+
 ### Step 4: Visualize the trend
 
 Command:
@@ -79,6 +87,8 @@ tsline wpi
 Output:
 
 <img width="766" height="506" alt="Screenshot-2025-10-25-143702" src="https://github.com/user-attachments/assets/9834a4b6-2c3a-4cf3-99d7-c29cbb693113" />
+
+---
 
 ### Step 5: Augmented Dickey-Fuller Test
 
@@ -119,6 +129,8 @@ MacKinnon approximate p-value for Z(t) = 0.9991.
 at 95% of significance, as `p > 0.05`, we fail to reject the null hypothesis.
 Therefore, the data is not stationary.
 
+---
+
 ### Step 6: First-order differencing
 
 Command:
@@ -134,6 +146,8 @@ Output:
 ```
 
 **Explanation for the missing value:** There will be one row which doesn't have another row to take differencing.
+
+---
 
 ### Step 7: Augmented Dickey-Fuller Test on d_diff
 
@@ -162,6 +176,8 @@ MacKinnon approximate p-value for Z(t) = 0.0001.
 
 at 95% of significance, as `p > 0.05`, we reject the null hypothesis.
 Therefore, the data is stationary.
+
+---
 
 ### Step 8: ARIMA
 
@@ -218,43 +234,55 @@ Note: The test of the variance against zero is one sided, and the two-sided
       confidence interval is truncated at zero.
 ```
 
+---
 
 ### Step 9: Interpretation of ARIMA
 
-#### AR - L1:
+#### AR - L1
 
 H<sub>00</sub>: The coefficient of AR - L1 is 0. (OR) There is no statistically significant difference between AR and L1.<br>
-H<sub>01</sub>: There is a statistically significant difference between AR and L1.
+H<sub>10</sub>: There is a statistically significant difference between AR and L1.
 
 Since `p < 0.05`, **We reject null hypothesis**.
 
-#### MA - L1:
+#### MA - L1
 
-H<sub>10</sub> There is no statistically significant difference between MA and L1.<br>
-H<sub>11</sub> There is a statistically significant difference between MA and L1.
+H<sub>01</sub>: There is no statistically significant difference between MA and L1.<br>
+H<sub>11</sub>: There is a statistically significant difference between MA and L1.
 
 Since `p > 0.05`, **We fail to reject null hypothesis**.
 
-#### MA - L2:
+#### MA - L2
 
-H<sub>20</sub> There is no statistically significant difference between MA and L2.<br>
-H<sub>21</sub> There is a statistically significant difference between MA and L2.
+H<sub>02</sub>: There is no statistically significant difference between MA and L2.<br>
+H<sub>12</sub>: There is a statistically significant difference between MA and L2.
 
 Since `p < 0.05`, **We reject null hypothesis**.
 
-#### MA - L3:
+#### MA - L3
 
-H<sub>30</sub> There is no statistically significant difference between MA and L3.<br>
-H<sub>31</sub> There is a statistically significant difference between MA and L3.
+H<sub>03</sub>: There is no statistically significant difference between MA and L3.<br>
+H<sub>13</sub>: There is a statistically significant difference between MA and L3.
 
 Since `p > 0.05`, **We fail to reject null hypothesis**.
 
-#### MA - L4:
+#### MA - L4
 
-H<sub>40</sub> There is no statistically significant difference between MA and L4.<br>
-H<sub>41</sub> There is a statistically significant difference between MA and L4.
+H<sub>04</sub>: There is no statistically significant difference between MA and L4.<br>
+H<sub>14</sub>: There is a statistically significant difference between MA and L4.
 
 Since `p < 0.05`, **We reject null hypothesis**.
+
+#### Overall Model
+
+H<sub>0</sub>: The overall model is not statistically significant.<br>
+H<sub>1</sub>: The overall model is statistically significant.
+
+Since `p < 0.05`, **We reject null hypothesis**.
+
+Therefore, the overall model is statistically significant.
+
+---
 
 ### Step 10: Generate residuals
 
@@ -270,7 +298,7 @@ Output:
 (2 missing values generated)
 ```
 
-### Step 11: Portmanteu Test
+### Step 11: Ljung-Box (Portmanteu) Test
 
 Command:
 
@@ -281,9 +309,15 @@ wntestq res
 Output:
 
 ```
-
 Portmanteau test for white noise
 ---------------------------------------
  Portmanteau (Q) statistic =    39.2523
  Prob > chi2(40)           =     0.5037
 ```
+
+H<sub>0</sub>: The residuals are white noise.
+H<sub>1</sub>: The residuals are not white noise.
+
+Since `p > 0.05`, we **fail to reject null hypothesis**.
+
+The residuals are white noise. Therefore, the ARIMA(1,1,4) model is adequately specified.
