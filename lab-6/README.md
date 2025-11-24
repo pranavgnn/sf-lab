@@ -77,16 +77,20 @@ tsline wpi
 ```
 
 Output:
-![img](https://i.ibb.co/gMZwZnTS/Screenshot-2025-10-25-143702.png)
+
+<img width="766" height="506" alt="Screenshot-2025-10-25-143702" src="https://github.com/user-attachments/assets/9834a4b6-2c3a-4cf3-99d7-c29cbb693113" />
 
 ### Step 5: Augmented Dickey-Fuller Test
-H<sub>0</sub>: Series is not stationary
+
+H<sub>0</sub>: Series is not stationary<br>
 H<sub>1</sub>: Series is stationary
 
 ac
+
 ![img](https://i.ibb.co/9Hb8Pn2k/ac.png)
 
 pac
+
 ![img](https://i.ibb.co/CKYZfYxT/pac.png)
 
 Command:
@@ -215,13 +219,44 @@ Note: The test of the variance against zero is one sided, and the two-sided
 ```
 
 
-### Step 8: Interpretation of ARIMA
+### Step 9: Interpretation of ARIMA
 
-AR - L1:
-H0: The coefficient of AR - L1 is 0. | There is no statistically significant difference between AR and L1
+#### AR - L1:
 
+H<sub>00</sub>: The coefficient of AR - L1 is 0. (OR) There is no statistically significant difference between AR and L1.<br>
+H<sub>01</sub>: There is a statistically significant difference between AR and L1.
 
-### Step 9: Generate residuals
+Since `p < 0.05`, **We reject null hypothesis**.
+
+#### MA - L1:
+
+H<sub>10</sub> There is no statistically significant difference between MA and L1.<br>
+H<sub>11</sub> There is a statistically significant difference between MA and L1.
+
+Since `p > 0.05`, **We fail to reject null hypothesis**.
+
+#### MA - L2:
+
+H<sub>20</sub> There is no statistically significant difference between MA and L2.<br>
+H<sub>21</sub> There is a statistically significant difference between MA and L2.
+
+Since `p < 0.05`, **We reject null hypothesis**.
+
+#### MA - L3:
+
+H<sub>30</sub> There is no statistically significant difference between MA and L3.<br>
+H<sub>31</sub> There is a statistically significant difference between MA and L3.
+
+Since `p > 0.05`, **We fail to reject null hypothesis**.
+
+#### MA - L4:
+
+H<sub>40</sub> There is no statistically significant difference between MA and L4.<br>
+H<sub>41</sub> There is a statistically significant difference between MA and L4.
+
+Since `p < 0.05`, **We reject null hypothesis**.
+
+### Step 10: Generate residuals
 
 Command:
 
@@ -235,7 +270,7 @@ Output:
 (2 missing values generated)
 ```
 
-### Step 10: Portmanteu Test
+### Step 11: Portmanteu Test
 
 Command:
 
